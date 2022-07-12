@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardRoutingModule } from './layout-routing.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [DashboardComponent, SidenavComponent],
@@ -16,8 +17,8 @@ import { DashboardRoutingModule } from './layout-routing.module';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    RouterModule
-
+    RouterModule,
+    NgApexchartsModule,
   ]
 })
 export class LayoutModule { }
