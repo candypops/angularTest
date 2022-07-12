@@ -6,11 +6,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { DashboardRoutingModule } from './layout-routing.module';
 
 @NgModule({
   declarations: [DashboardComponent, SidenavComponent],
   imports: [
     CommonModule,
+    DashboardRoutingModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
