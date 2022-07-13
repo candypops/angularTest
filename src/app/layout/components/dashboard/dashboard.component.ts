@@ -12,10 +12,10 @@ export class DashboardComponent implements OnInit {
 
   storeList = [{ code: "0056", name: `0056` }, { code: "0599", name: `0599` }, { code: "1132", name: `1132` }];
   productList = [{ code: "01", name: "tiendas-cr" }, { code: "02", name: "lubricantes" }, { code: "03", name: "filtros" }];
-  form :FormGroup;
-  dataSource= [];
+  form: FormGroup;
+  dataSource = [];
 
-  constructor(private dashboardService : DashboardService) {
+  constructor(private dashboardService: DashboardService) {
 
   }
 
@@ -26,10 +26,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  search(){
+  search() {
     const store = this.form.get('store')?.value?.name;
     const product = this.form.get('product')?.value?.name;
     this.dataSource = this.dashboardService.getData(store, product)
+    this.dataSource.forEach(d => {
+      d['store'] = store;
+      d['productCode'] = product;
+    })
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-table',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductTableComponent implements OnInit {
   displayedColumns: string[] = ['date', 'store', 'quantity', 'code'];
-  dataSource = [];
+  @Input() dataSource = [];
 
   constructor() { }
 

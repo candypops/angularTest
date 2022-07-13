@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="select-wrapper" [formGroup]="form">
 		<mat-form-field floatLabel="always">
-			<mat-label>Producto</mat-label>
+			<mat-label>Sector</mat-label>
 			<mat-select formControlName="product">
 				<mat-select-trigger>
 					{{form.get('product')?.value?.name |titlecase}}
@@ -12,7 +12,7 @@
 		</mat-form-field>
 
 		<mat-form-field floatLabel="always">
-			<mat-label>Tienda</mat-label>
+			<mat-label>Sucursal</mat-label>
 			<mat-select formControlName="store">
 				<mat-select-trigger>
 					{{form.get('store')?.value?.name |titlecase}}
@@ -29,5 +29,5 @@
 	<mat-divider></mat-divider>
 	<app-product-graphs></app-product-graphs>
 
-	<app-product-table></app-product-table>
+	<app-product-table [dataSource]="dataSource"></app-product-table>
 </div>
