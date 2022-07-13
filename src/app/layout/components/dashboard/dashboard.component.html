@@ -1,27 +1,32 @@
 <div class="row">
 	<div class="select-wrapper" [formGroup]="form">
 		<mat-form-field floatLabel="always">
-			<mat-label>Sector</mat-label>
-			<mat-select formControlName="sector">
+			<mat-label>Producto</mat-label>
+			<mat-select formControlName="product">
 				<mat-select-trigger>
-					{{form.get('sector')?.value}}
+					{{form.get('product')?.value?.name |titlecase}}
 				</mat-select-trigger>
-				<mat-option *ngFor="let sector of sectorList" [value]="sector.code">{{sector.name | titlecase}}
+				<mat-option *ngFor="let product of productList" [value]="product">{{product.name | titlecase}}
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
 
 		<mat-form-field floatLabel="always">
 			<mat-label>Tienda</mat-label>
-			<mat-select>
+			<mat-select formControlName="store">
 				<mat-select-trigger>
-					trigger
+					{{form.get('store')?.value?.name |titlecase}}
 				</mat-select-trigger>
-				<mat-option *ngFor="let sector of sectorList" [value]="sector.code">{{sector.name | titlecase}}
+				<mat-option *ngFor="let store of storeList" [value]="store">{{store.name | titlecase}}
 				</mat-option>
 			</mat-select>
 		</mat-form-field>
+
+		<button mat-raised-button color="primary" 
+			(click)="search()"
+			[disabled]="!form?.valid">Buscar</button>
 	</div>
+	<mat-divider></mat-divider>
 	<app-product-graphs></app-product-graphs>
 
 	<app-product-table></app-product-table>
