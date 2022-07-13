@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-table.component.scss']
 })
 export class ProductTableComponent implements OnInit {
+  displayedColumns: string[] = ['date', 'store', 'quantity', 'code'];
+  dataSource = [];
 
   constructor() { }
 

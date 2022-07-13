@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { ProductGraphsComponent } from './components/product-graphs/product-graphs.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [DashboardComponent, SidenavComponent, ProductTableComponent, ProductGraphsComponent],
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgApexchartsModule,
     MatIconModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ]
 })
 export class LayoutModule { }

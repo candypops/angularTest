@@ -28,7 +28,7 @@ export class ProductGraphsComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "My-series",
+          name: "Stock",
           data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
         }
       ],
@@ -37,7 +37,7 @@ export class ProductGraphsComponent implements OnInit {
         type: "bar"
       },
       title: {
-        text: "My First Angular Chart"
+        text: "Quiebres de stock"
       },
       xaxis: {
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
