@@ -2,19 +2,19 @@
     <mat-sidenav #sidenav mode="side" opened="isExpanded" class="side-nav">
       <mat-nav-list>
   
-        <mat-list-item (click)="isExpanded = !isExpanded">AAA
+        <mat-list-item (click)="isExpanded = !isExpanded">
+          <mat-icon>{{!isExpanded ?"chevron_right" :"chevron_left"}}</mat-icon>
         </mat-list-item>
   
         <mat-list-item [routerLink]="'dashboard'">
-          <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+          <span *ngIf="isExpanded" class="menu-item">Quiebre de stock</span>
         </mat-list-item>
   
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <mat-toolbar>
-        <h4>Dashboard</h4>
+      <mat-toolbar class="header">
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>

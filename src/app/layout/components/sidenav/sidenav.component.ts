@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  isExpanded: boolean = true;
+  isExpanded: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
