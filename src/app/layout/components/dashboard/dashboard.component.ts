@@ -1,19 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import {
-  ChartComponent,
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexTitleSubtitle
-} from "ng-apexcharts";
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  title: ApexTitleSubtitle;
-};
 
 @Component({
   selector: 'app-dashboard',
@@ -21,31 +8,20 @@ export type ChartOptions = {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild("chart") chart: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
 
+  storeList = [{ code: "0056", name: `Tienda 0056` }, { code: "0599", name: `Tienda 0599` }, { code: "1132", name: `Tienda 1132` }];
+  sectorList = [{ code: "01", name: "tiendas-cr" }, { code: "02", name: "lubricantes" }, { code: "03", name: "filtros" }];
+  form :FormGroup;
   constructor() {
-    this.chartOptions = {
-      series: [
-        {
-          name: "My-series",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-        }
-      ],
-      chart: {
-        height: 350,
-        type: "bar"
-      },
-      title: {
-        text: "My First Angular Chart"
-      },
-      xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
-      }
-    };
+
   }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      sector: new FormControl('', Validators.required),
+      store: new FormControl('', Validators.required),
+    });
   }
+
 
 }

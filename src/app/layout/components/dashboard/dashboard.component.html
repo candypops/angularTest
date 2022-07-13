@@ -1,9 +1,28 @@
-<p>dashboard</p>
-<div style="text-align:center">
-  <apx-chart
-    [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [xaxis]="chartOptions.xaxis"
-    [title]="chartOptions.title"
-  ></apx-chart>
+<div class="row">
+	<div class="select-wrapper" [formGroup]="form">
+		<mat-form-field floatLabel="always">
+			<mat-label>Sector</mat-label>
+			<mat-select formControlName="sector">
+				<mat-select-trigger>
+					{{form.get('sector')?.value}}
+				</mat-select-trigger>
+				<mat-option *ngFor="let sector of sectorList" [value]="sector.code">{{sector.name | titlecase}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field floatLabel="always">
+			<mat-label>Tienda</mat-label>
+			<mat-select>
+				<mat-select-trigger>
+					trigger
+				</mat-select-trigger>
+				<mat-option *ngFor="let sector of sectorList" [value]="sector.code">{{sector.name | titlecase}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<app-product-graphs></app-product-graphs>
+
+	<app-product-table></app-product-table>
 </div>
