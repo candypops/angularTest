@@ -27,7 +27,7 @@
 			[disabled]="!form?.valid">Buscar</button>
 	</div>
 	<mat-divider></mat-divider>
-	<app-product-graphs></app-product-graphs>
+	<app-product-graphs [dataSource]="dataSource"></app-product-graphs>
 
 	<app-product-table [dataSource]="dataSource"></app-product-table>
 </div>
