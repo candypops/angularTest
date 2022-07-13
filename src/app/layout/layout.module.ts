@@ -14,6 +14,8 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { ProductGraphsComponent } from './components/product-graphs/product-graphs.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [DashboardComponent, SidenavComponent, ProductTableComponent, ProductGraphsComponent],
@@ -28,7 +30,9 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatDividerModule
   ]
 })
 export class LayoutModule { }

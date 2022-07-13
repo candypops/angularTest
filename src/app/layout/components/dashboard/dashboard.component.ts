@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DashboardService } from 'src/app/services/dashboard-service/dashboard.service';
 
 
 @Component({
@@ -9,19 +10,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
 
-  storeList = [{ code: "0056", name: `Tienda 0056` }, { code: "0599", name: `Tienda 0599` }, { code: "1132", name: `Tienda 1132` }];
-  sectorList = [{ code: "01", name: "tiendas-cr" }, { code: "02", name: "lubricantes" }, { code: "03", name: "filtros" }];
+  storeList = [{ code: "0056", name: `0056` }, { code: "0599", name: `0599` }, { code: "1132", name: `1132` }];
+  productList = [{ code: "01", name: "tiendas-cr" }, { code: "02", name: "lubricantes" }, { code: "03", name: "filtros" }];
   form :FormGroup;
-  constructor() {
+  dataSource= [];
+
+  constructor(private dashboardService : DashboardService) {
 
   }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      sector: new FormControl('', Validators.required),
+      product: new FormControl('', Validators.required),
       store: new FormControl('', Validators.required),
     });
   }
 
+  search(){
+    const store = this.form.get('store')?.value?.name;
+    const product = this.form.get('product')?.value?.name;
+    this.dataSource = this.dashboardService.getData(store, product)
+  }
 
 }
